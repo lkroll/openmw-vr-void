@@ -12,10 +12,9 @@ makedepends="liblz4-devel yaml-cpp-devel libunshield-devel ffmpeg6-devel
  osg-devel boost-devel libmygui-devel libopenal-devel LuaJIT-devel libXt-devel
  qt6-svg-devel SDL2-devel"
 short_desc="Open Implementation of Morrowind's Engine with OpenXR support"
-maintainer="Lennart Kroll <24440161+lkroll@users.noreply.github.com>"
+maintainer="Lennart Kroll <void@lennyboy.anonaddy.com>"
 license="GPL-3.0-or-later"
 homepage="https://gitlab.com/madsbuvi/openmw"
-conflicts="openmw"
 distfiles="https://github.com/madsbuvi/openmw/archive/refs/tags/openmw-vr-${version}.tar.gz
  https://github.com/recastnavigation/recastnavigation/archive/${_recast_commit}.tar.gz
  https://github.com/bulletphysics/bullet3/archive/refs/tags/${_bullet_tag}.tar.gz
@@ -24,6 +23,7 @@ checksum="afc3be50491a0ca994e01f5a12b568056769719218d8cb942e7ecd847ff38d1f
  fa8b901651017b20a38996bbab2d205d244328ed11778b53224282e9884e6c91
  baa642c906576d4d98d041d0acb80d85dd6eff6e3c16a009b1abf1ccd2bc0a61
  9b372b75c530cd89f48f7d5b43846e69670670be50cd9a16ed7731792cf063ad"
+conflicts="openmw"
 
 skip_extraction="${_recast_commit}.tar.gz ${_bullet_tag}.tar.gz ${_openxr_tag}.tar.gz"
 
