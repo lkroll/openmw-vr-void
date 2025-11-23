@@ -12,4 +12,7 @@ xi openmw-vr
 After installation and initial configuration run `openmw_vr` with your VR runtime of choice.
 Tested with SteamVR.
 
+If you want the latest git version use the -git template and update `_openmwvr_commit` to the commit you want to use.
+Use at your own risk!
+
 Note: Remove your regular OpenMW installation as they conflict with each other.
