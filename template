@@ -1,6 +1,6 @@
 # Template file for 'openmw-vr'
 pkgname=openmw-vr
-version=0.49.2
+version=0.50
 revision=1
 build_style=cmake
 _recast_commit=c393777d26d2ff6519ac23612abf8af42678c9dd
@@ -15,11 +15,11 @@ short_desc="Open Implementation of Morrowind's Engine with OpenXR support"
 maintainer="Lennart Kroll <void@lennyboy.anonaddy.com>"
 license="GPL-3.0-or-later"
 homepage="https://gitlab.com/madsbuvi/openmw"
-distfiles="https://github.com/madsbuvi/openmw/archive/refs/tags/openmw-vr-${version}.tar.gz
+distfiles="https://github.com/madsbuvi/openmw/archive/refs/tags/openmw-vr-${version}-rc2.tar.gz
  https://github.com/recastnavigation/recastnavigation/archive/${_recast_commit}.tar.gz
  https://github.com/bulletphysics/bullet3/archive/refs/tags/${_bullet_tag}.tar.gz
  https://github.com/KhronosGroup/OpenXR-SDK/archive/refs/tags/${_openxr_tag}.tar.gz"
-checksum="afc3be50491a0ca994e01f5a12b568056769719218d8cb942e7ecd847ff38d1f
+checksum="da6071d9f77b9579a61d2d8f863bef9e6b7bdd89708be1fcffd64d830ca431bf
  fa8b901651017b20a38996bbab2d205d244328ed11778b53224282e9884e6c91
  baa642c906576d4d98d041d0acb80d85dd6eff6e3c16a009b1abf1ccd2bc0a61
  9b372b75c530cd89f48f7d5b43846e69670670be50cd9a16ed7731792cf063ad"
