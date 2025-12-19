@@ -1,0 +1,54 @@
+# Template file for 'osg-multiview'
+pkgname=osg-multiview
+version=3.6.5
+revision=1
+build_style=cmake
+build_helper="qemu"
+# don't use /usr/lib64 on 64bit platforms
+configure_args="-DLIB_POSTFIX="
+hostmakedepends="pkg-config xrandr"
+makedepends="MesaLib-devel gtkglext-devel libcurl-devel giflib-devel librsvg-devel
+ jasper-devel tiff-devel libgdal-devel libgta-devel ffmpeg6-devel xine-lib-devel
+ SDL2-devel gst-plugins-base1-devel collada-dom-devel
+ $(vopt_if openexr libopenexr-devel)
+ $(vopt_if poppler poppler-glib-devel)
+ $(vopt_if vnc libvncserver-devel)"
+depends="xrandr"
+short_desc="OpenSceneGraph: high performance real-time graphics toolkit"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="LGPL-2.1-or-later, WxWindows-exception-3.1, custom:OpenSceneGraph"
+homepage="https://www.openscenegraph.org"
+changelog="https://raw.githubusercontent.com/openscenegraph/OpenSceneGraph/master/NEWS.txt"
+distfiles="https://gitlab.com/madsbuvi/osg/-/archive/MultiViewMW/osg-MultiViewMW.tar.gz"
+checksum=e28b71d6a92d8fef9e17bd44e1625408aa841b78bca75c127a8dfe89647dbc22
+conflicts="osg"
+
+build_options="openexr poppler vnc"
+build_options_default="openexr poppler vnc"
+desc_option_openexr="Enable support for high dynamic range images"
+desc_option_poppler="Enable support for creating PDF"
+desc_option_vnc="Enable support for VNC server"
+
+if [ -n "$CROSS_BUILD" ]; then
+	# cmake can't check this when cross compiling
+	configure_args+=" -DPOPPLER_HAS_CAIRO_EXITCODE=0"
+	configure_args+=" -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS_EXITCODE=0"
+fi
+
+post_install() {
+	# Also install the cmake script FindOSG.cmake for developers to use
+	vinstall CMakeModules/FindOSG.cmake 644 usr/lib/cmake/OSG
+	vlicense LICENSE.txt
+}
+
+osg-multiview-devel_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	short_desc+=" - development files"
+	conflicts+="-devel"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/cmake
+		vmove usr/lib/pkgconfig
+		vmove usr/lib/*.so
+	}
+}
