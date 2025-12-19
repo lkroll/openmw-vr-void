@@ -1,7 +1,7 @@
 # Template file for 'openmw-vr'
 pkgname=openmw-vr
 version=0.50.0
-revision=1
+revision=2
 build_style=cmake
 _openmwvr_commit=5ca0d41d0ce67487e23d65e8a343173d07732b29
 _recast_commit=c393777d26d2ff6519ac23612abf8af42678c9dd
@@ -10,7 +10,7 @@ _openxr_tag=release-1.0.24
 configure_args="-DOPENMW_USE_SYSTEM_BULLET=OFF -DFETCHCONTENT_FULLY_DISCONNECTED=ON -DOPENMW_LTO_BUILD=ON -DBUILD_OPENMW_VR=ON"
 hostmakedepends="pkg-config qt6-tools"
 makedepends="liblz4-devel yaml-cpp-devel libunshield-devel ffmpeg6-devel
- osg-devel boost-devel libmygui-devel libopenal-devel LuaJIT-devel libXt-devel
+ osg-multiview-devel boost-devel libmygui-devel libopenal-devel LuaJIT-devel libXt-devel
  qt6-svg-devel SDL2-devel"
 short_desc="Open Implementation of Morrowind's Engine with OpenXR support"
 maintainer="Lennart Kroll <void@lennyboy.anonaddy.com>"
